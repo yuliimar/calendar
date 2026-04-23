@@ -1,13 +1,13 @@
 // Variables
 $day-size: 100px;
-$day-bg: #eee;
-$day-border: 1px solid black;
+$day-bg: #c6c6c67d;
+$day-border: 1px solid rgb(240, 240, 240);
 $gap: 1px;
 $columns: 7;
 $padding: 10px;
 $font-family: Arial;
 $font-size: 30px;
-$hover-color: #ffbfcb;
+$hover-color: #ffbfcb79;
 $hover-translate: -20px;
 $animation-duration: 0.5s;
 
@@ -18,6 +18,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(../images/pink-diamond-background-balls.jpg);
+  background-position: 50%;
+  background-size: cover;
 }
 
 // Calendar block
@@ -36,6 +39,7 @@ body {
     height: $day-size;
     background: $day-bg;
     border: $day-border;
+    border-radius: 20px;
     position: relative;
     transition: all $animation-duration ease;
     box-sizing: border-box;
@@ -63,19 +67,19 @@ body {
 // Generate day numbers (1-31)
 @for $i from 1 through 31 {
   .calendar__day:nth-child(#{$i})::before {
-    content: '#{$i}';
+    content: "#{$i}";
   }
 }
 
 // Start day modifiers
 $start-days: (
-  'mon': 1,
-  'tue': 2,
-  'wed': 3,
-  'thu': 4,
-  'fri': 5,
-  'sat': 6,
-  'sun': 7,
+  "mon": 1,
+  "tue": 2,
+  "wed": 3,
+  "thu": 4,
+  "fri": 5,
+  "sat": 6,
+  "sun": 7,
 );
 
 @each $day, $offset in $start-days {
